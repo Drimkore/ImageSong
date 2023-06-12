@@ -18,7 +18,7 @@ def get_song():
     return song_title
 
 
-@app.route("/", method=['POST'])
+@app.route("/", methods=['POST'])
 def get_image():
     client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
