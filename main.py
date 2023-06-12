@@ -18,10 +18,11 @@ def get_song():
     return song_title
 
 
-def get_image(input_text):
+@app.route("/", method=['POST'])
+def get_image():
     client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
-				input_text,	# str  in 'Input' Textbox component
-				api_name="/predict"
+        get_song(),	 # str  in 'Input' Textbox component
+        api_name="/predict"
     )
-    return result
+    return json.dumps({'result':result})
