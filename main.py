@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request
 from gradio_client import Client
-import json, random
+import json, random, os
 
 
 app = Flask(__name__)
+app.debug = True
 
 
 @app.route("/")
 def main_page():
+    print('Hi', flush=True)
     return render_template('index.html')
 
 
