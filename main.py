@@ -17,7 +17,7 @@ def change_path(path):
     if os.name == 'nt':  # for windows
         path_list = path.split('\\')
         file_name = path_list[-1]
-        new_path = ''+file_name  # по аналогии
+        new_path = 'static\\tmp\\'+file_name  # по аналогии
         os.system(f'copy {path} {new_path}')
     else:  #  for unix
         path_list = path.split('/')

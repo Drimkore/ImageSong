@@ -11,7 +11,8 @@ $(document).ready(function(){
                 $('samp[name="output_field"]').html('');
             },
             success: function(response){
-                $('samp[name="output_field"]').html(response.result)
+                $('img[name="check"]').attr( "src", `${response.result}`)
+                
             }
         })
     })
