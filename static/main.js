@@ -1,18 +1,34 @@
 $(document).ready(function(){
 
-    $('.btn').click(function(){
+    $('#postAns').click(function(){
         $.ajax({
-            url: '',
+            url: '/answer',
             type: 'post',
             dataType: 'json',
             data: $('form').serialize(),
+            beforeSend: function()
+            {
+                //$('samp[name="output_field"]').html('');
+            },
+            success: function(response){
+                //$('img[name="check"]').attr( "src", `${response.result}`)
+                alert(response.result)
+                
+            }
+        })
+     }) 
+
+    $('#getGen').click(function(){
+        $.ajax({
+            url: '/generate',
+            type: 'get',
+            dataType: 'json',
             beforeSend: function()
             {
                 $('samp[name="output_field"]').html('');
             },
             success: function(response){
                 $('img[name="check"]').attr( "src", `${response.result}`)
-                
             }
         })
     })

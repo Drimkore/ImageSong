@@ -6,6 +6,8 @@ import json, random, os
 app = Flask(__name__)
 app.debug = True
 
+answer = "ans"
+
 
 @app.route("/")
 def main_page():
@@ -35,7 +37,7 @@ def get_song():
     return song_title
 
 
-@app.route("/", methods=['POST'])
+@app.route("/generate", methods=['GET'])
 def get_image():
     client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
@@ -43,3 +45,11 @@ def get_image():
         api_name="/predict"
     )
     return json.dumps({'result':change_path(result)})
+
+@app.route("/answer", methods = ['POST'])
+def check_result():
+    res = False
+    text = request.form['input_field']
+    if (text == answer):
+        res = True   
+    return json.dumps({'result': res})
