@@ -1,12 +1,12 @@
+import json
+import os
+import random
+
 from flask import Flask, render_template, request
 from gradio_client import Client
-import json, random, os
-
 
 app = Flask(__name__)
 app.debug = True
-
-answer = "ans"
 
 
 @app.route("/")
@@ -21,13 +21,12 @@ def change_path(path):
         file_name = path_list[-1]
         new_path = 'static\\tmp\\'+file_name  # по аналогии
         os.system(f'copy {path} {new_path}')
-    else:  #  for unix
+    else:  # for unix
         path_list = path.split('/')
         file_name = path_list[-1]
         new_path = 'static/'+file_name
         os.system(f'cp {path} {new_path}')
     return new_path
-
 
 
 def get_song():
@@ -37,19 +36,25 @@ def get_song():
     return song_title
 
 
+correct_answer = ""
+
+
 @app.route("/generate", methods=['GET'])
 def get_image():
+    global correct_answer
+    correct_answer = get_song()
     client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
-        get_song(),	 # str  in 'Input' Textbox component
+        correct_answer,	 # str  in 'Input' Textbox component
         api_name="/predict"
     )
-    return json.dumps({'result':change_path(result)})
+    return json.dumps({'result': change_path(result)})
 
-@app.route("/answer", methods = ['POST'])
+
+@app.route("/answer", methods=['POST'])
 def check_result():
     res = False
     text = request.form['input_field']
-    if (text == answer):
+    if text == correct_answer:
         res = True   
     return json.dumps({'result': res})
