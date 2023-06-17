@@ -19,6 +19,23 @@ $(document).ready(function(){
                 }
             }
         })
+     })
+     
+     
+     $('#getHelp').click(function(){
+        $.ajax({
+            url: '/help',
+            type: 'get',
+            dataType: 'text',
+            beforeSend: function()
+            {
+                //$('samp[name="output_field"]').html('');
+            },
+            success: function(response){
+                console.log(response)
+                $('#help').append(document.createTextNode(`${response + ' '}`))
+            }
+        })
      }) 
 
     $('#getGen').click(function(){

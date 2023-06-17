@@ -35,10 +35,14 @@ def get_song():
     r_id = random.randint(0, 10)
     song_data = json.load(open('song_list.json', 'rb'))
     song_title = song_data['songs'][r_id]['song_name']
+    global help_list 
+    help_list= song_data['songs'][r_id]
     return song_title
 
 
 correct_answer = ""
+help_list = {}
+count_help = 0
 
 
 @app.route("/generate", methods=['GET'])
@@ -65,3 +69,15 @@ def check_result():
     else:    
         lives -=1   
     return json.dumps({'lives': lives, 'result' : res, 'score' : score})
+
+
+@app.route("/help", methods=['GET'])
+def get_help():
+    global count_help
+    count_help += 1
+    if count_help == 1:
+        return str(help_list['year'])
+    elif count_help == 2:
+        return help_list['genre']
+    else:
+        return help_list['artist']
