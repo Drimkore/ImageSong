@@ -8,11 +8,13 @@ from gradio_client import Client
 app = Flask(__name__)
 app.debug = True
 
+lives = 3
+score = 0
 
 @app.route("/")
 def main_page():
     print('Hi', flush=True)
-    return render_template('index.html')
+    return render_template('index.html', variable = correct_answer)
 
 
 def change_path(path):
@@ -53,8 +55,13 @@ def get_image():
 
 @app.route("/answer", methods=['POST'])
 def check_result():
+    global lives
+    global score
     res = False
     text = request.form['input_field']
     if text == correct_answer:
-        res = True   
-    return json.dumps({'result': res})
+        res = True
+        score += 10
+    else:    
+        lives -=1   
+    return json.dumps({'lives': lives, 'result' : res, 'score' : score})

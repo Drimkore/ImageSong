@@ -11,9 +11,12 @@ $(document).ready(function(){
                 //$('samp[name="output_field"]').html('');
             },
             success: function(response){
-                //$('img[name="check"]').attr( "src", `${response.result}`)
-                alert(response.result)
-                
+                if (response.result == true){
+                    $('#score').text(`${response.score}`)
+                }
+                else {
+                    $('#qwe').text(`${response.lives}`)  
+                }
             }
         })
      }) 
