@@ -1,7 +1,6 @@
 import json
 import os
 import random
-
 from flask import Flask, render_template, request
 from gradio_client import Client
 
@@ -11,10 +10,11 @@ app.debug = True
 lives = 3
 score = 0
 
+
 @app.route("/")
 def main_page():
     print('Hi', flush=True)
-    return render_template('index.html', variable = correct_answer)
+    return render_template('index.html', variable=correct_answer)
 
 
 def change_path(path):
@@ -26,7 +26,7 @@ def change_path(path):
     else:  # for unix
         path_list = path.split('/')
         file_name = path_list[-1]
-        new_path = 'static/'+file_name
+        new_path = 'static/tmp/'+file_name
         os.system(f'cp {path} {new_path}')
     return new_path
 
@@ -35,8 +35,8 @@ def get_song():
     r_id = random.randint(0, 10)
     song_data = json.load(open('song_list.json', 'rb'))
     song_title = song_data['songs'][r_id]['song_name']
-    global help_list 
-    help_list= song_data['songs'][r_id]
+    global help_list
+    help_list = song_data['songs'][r_id]
     return song_title
 
 
@@ -66,9 +66,9 @@ def check_result():
     if text == correct_answer:
         res = True
         score += 10
-    else:    
-        lives -=1   
-    return json.dumps({'lives': lives, 'result' : res, 'score' : score})
+    else:
+        lives -= 1
+    return json.dumps({'lives': lives, 'result': res, 'score': score})
 
 
 @app.route("/help", methods=['GET'])
