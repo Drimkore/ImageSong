@@ -40,7 +40,6 @@ def get_song():
     return song_title
 
 
-
 correct_answer = ""
 help_list = {}
 count_help = 0
@@ -49,7 +48,7 @@ count_help = 0
 @app.route("/generate", methods=['GET'])
 def get_image():
     global correct_answer
-    correct_answer = get_song()
+    correct_answer = 'album cover '+get_song()
     client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
         correct_answer,	 # str  in 'Input' Textbox component
