@@ -13,15 +13,21 @@ $(document).ready(function(){
             success: function(response){
                 if (response.result == true){
                     $('#score').text(`${response.score}`)
+                    $('#getGen').click()
                 }
                 else {
-                    $('#qwe').text(`${response.lives}`)  
+                    console.log(response.lives)
+                    $('#qwe').text(`${response.lives}`)
+                    if (response.lives == 0){
+                        location.reload()
+                    }  
                 }
             }
         })
      })
      
-     
+    let click = 0;  
+
      $('#getHelp').click(function(){
         $.ajax({
             url: '/help',
@@ -33,7 +39,11 @@ $(document).ready(function(){
             },
             success: function(response){
                 console.log(response)
+                click +=1
                 $('#help').append(document.createTextNode(`${response + ' '}`))
+                if (click == 3){
+                    $("#getHelp").attr("disabled", true);
+                }
             }
         })
      }) 
@@ -54,10 +64,3 @@ $(document).ready(function(){
     })
 })
 
-$(document).ajaxSend(function(event, request, settings) {
-    $('#loading-indicator').show();
-});
-
-$(document).ajaxComplete(function(event, request, settings) {
-    $('#loading-indicator').hide();
-})

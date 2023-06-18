@@ -7,14 +7,14 @@ from gradio_client import Client
 app = Flask(__name__)
 app.debug = True
 
-lives = 3
-score = 0
-
-
 @app.route("/")
 def main_page():
+    global lives
+    global score
+    lives = 3
+    score = 0
     print('Hi', flush=True)
-    return render_template('index.html', variable=correct_answer)
+    return render_template('index.html', variable=lives)
 
 
 def change_path(path):

@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    gap: 1% 1%; 
+    grid-template-areas:". . . s s . . ."
+                        "h h i i i i a a"
+                        "h h i i i i a a"
+                        ". . t t t t . ."
+                        ". . . . . . . .";
+}
+
+.score { grid-area: s; }
+.image { grid-area: i; }
+.btn_start { grid-area: t; }
+.help { 
+    grid-area: h;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+ 
+}
+.answer {
+    grid-area: a;
+    justify-content: center;
+ }
