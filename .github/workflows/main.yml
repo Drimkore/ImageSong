@@ -20,8 +20,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Removing previous chrome instances on runner
-      run: sudo apt purge google-chrome-stable
     - name: Install software
       run: sudo apt install openjdk-8-jre chromium-chromedriver chromium-browser firefox
     - name: Install Chromedriver
