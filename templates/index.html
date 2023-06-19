@@ -3,37 +3,36 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel= "stylesheet" type= "text/css" href= "/static/styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="/static/main.js"></script>
     </head>
-    <body class="d-flex h-100 text-center">
-    <title>Story to Title</title>
-        <div class="">
-            <h1>The Game</h1>
-            <div>
-                <p> Ответ: {{variable}}</p>
-                <samp> жизни: </samp>
-                <p id="qwe">3</p>
-                <samp> счет</samp>
-                <p id="score"> 0</p>
-                <div>
-                    <input id='getHelp' type="button" value="Help">
-                    <p id="help"></p>
-                </div>
+    <body class="container">
+    <title>Guess the song</title>
+            <div class="score">
+                <samp> SCORE:</samp>
+                <samp id="score"> 0</samp>
             </div>
-            <input id="getGen" type="button" value="Generate" class="mt-4 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
-            <form class="d-flex flex-column bd-highligh" method="POST">
-                <textarea class="mt-4 form-control" name="input_field" placeholder="Write the text" style="height: 100px;"></textarea>
-                <input id="postAns" type="button" value="Generate title" class="mt-4 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
-            </form>
-            <div class="">
+            <div class="image">
                 <img name ="check" src=""/>
             </div>
+            <input id="getGen" type="button" value="Start" class="btn_start mt-4 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
+            <div class="help">
+                <div>
+                    <samp> POINTS: </samp>
+                    <samp id="qwe">3</samp>
+                </div>
+                <input id='getHelp' type="button" value="Help" class="btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
+                <p id="help"></p>
+            </div>
+            <form class="answer d-flex flex-column bd-highligh" method="POST">
+                <input type="text" class="mt-4 form-control" name="input_field" placeholder="Write the text"></input>
+                <input id="postAns" type="button" value="Guess" class="mt-2 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
+            </form>
             <div class="mt-4 bd-highligh">
                 <img src="/static/images/loading.gif" id="loading-indicator" style="display:none;" />
                 <samp name="output_field" style="border-bottom: 3px solid"></samp>
-            </div>
         </div>
     </body>
 </html>
