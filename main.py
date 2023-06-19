@@ -49,14 +49,12 @@ def get_song():
 
 
 
-
-
 @app.route("/generate", methods=['GET'])
 def get_image():
     global correct_answer
     correct_answer = get_song()
     result = client.predict(
-        correct_answer,	 # str  in 'Input' Textbox component
+        'album cover ' + correct_answer,	 # str  in 'Input' Textbox component
         api_name="/predict"
     )
     return json.dumps({'result': change_path(result)})
