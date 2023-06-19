@@ -52,10 +52,32 @@ def test_ptn_decr(browser):
     for i in range(2):
         post_btn.click()
         time.sleep(10)
-        print("i=", i)
         a = 2 - i
-        print("a=", a)
         pnt = driver.find_element(By.ID, "qwe").text
         assert pnt == f"{a}"
-    driver.quit()
 
+
+def test_help_btn(browser):
+    global driver
+    URL = 'http://127.0.0.1:5000'
+    browser.get(URL)
+    help_btn = driver.find_element(By.ID, "getHelp")
+    help_btn.click()
+    time.sleep(3)
+    hlp_txt = driver.find_element(By.ID, "help").text
+    assert hlp_txt != ''
+
+
+def test_input(browser):
+    global driver
+    URL = 'http://127.0.0.1:5000'
+    browser.get(URL)
+    init_pnt = driver.find_element(By.ID, "qwe").text
+    input_field = driver.find_element(By.NAME, 'input_field')
+    input_field.send_keys('wrong answer')
+    post_btn = driver.find_element(By.ID, "postAns")
+    post_btn.click()
+    time.sleep(5)
+    new_pnt = driver.find_element(By.ID, "qwe").text
+    assert new_pnt != init_pnt
+    driver.quit()
