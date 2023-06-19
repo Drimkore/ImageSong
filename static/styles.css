@@ -6,11 +6,20 @@
                         "h h i i i i a a"
                         ". . t t t t . ."
                         ". . . . . . . .";
+    justify-items: center;
 }
 
 .score { grid-area: s; }
-.image { grid-area: i; }
+
+.image { 
+    grid-area: i;
+    width: 512px;
+    height: 512px;
+    border: 1px solid;
+}
+
 .btn_start { grid-area: t; }
+
 .help { 
     grid-area: h;
     display: grid;

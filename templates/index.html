@@ -21,14 +21,14 @@
             <div class="help">
                 <div>
                     <samp> POINTS: </samp>
-                    <samp id="qwe">{{variable}}</samp>
+                    <samp id="qwe">3</samp>
                 </div>
                 <input id='getHelp' type="button" value="Help" class="btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
                 <p id="help"></p>
             </div>
             <form class="answer d-flex flex-column bd-highligh" method="POST">
-                <textarea class="mt-4 form-control" name="input_field" placeholder="Write the text" style="height: 100px;"></textarea>
-                <input id="postAns" type="button" value="Generate title" class="mt-4 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
+                <input type="text" class="mt-4 form-control" name="input_field" placeholder="Write the text"></input>
+                <input id="postAns" type="button" value="Guess" class="mt-2 btn btn-outline-dark" style="--bs-btn-padding-x: 10rem;">
             </form>
             <div class="mt-4 bd-highligh">
                 <img src="/static/images/loading.gif" id="loading-indicator" style="display:none;" />

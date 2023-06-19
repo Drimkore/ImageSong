@@ -8,11 +8,12 @@ $(document).ready(function(){
             data: $('form').serialize(),
             beforeSend: function()
             {
-                //$('samp[name="output_field"]').html('');
+                
             },
             success: function(response){
                 if (response.result == true){
                     $('#score').text(`${response.score}`)
+                    $('#help').text(' ')
                     $('#getGen').click()
                 }
                 else {
@@ -35,7 +36,7 @@ $(document).ready(function(){
             dataType: 'text',
             beforeSend: function()
             {
-                //$('samp[name="output_field"]').html('');
+
             },
             success: function(response){
                 console.log(response)
@@ -46,8 +47,9 @@ $(document).ready(function(){
                 }
             }
         })
-     }) 
-
+     });
+     
+     
     $('#getGen').click(function(){
         $.ajax({
             url: '/generate',

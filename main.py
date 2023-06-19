@@ -6,15 +6,22 @@ from gradio_client import Client
 
 app = Flask(__name__)
 app.debug = True
+client = Client("https://dukujames-text-image.hf.space/")
+
 
 @app.route("/")
 def main_page():
     global lives
     global score
+    global correct_answer
+    global help_list
+    global count_help
     lives = 3
     score = 0
-    print('Hi', flush=True)
-    return render_template('index.html', variable=lives)
+    correct_answer = ""
+    help_list = {}
+    count_help = 0
+    return render_template('index.html')
 
 
 def change_path(path):
@@ -41,16 +48,13 @@ def get_song():
 
 
 
-correct_answer = ""
-help_list = {}
-count_help = 0
+
 
 
 @app.route("/generate", methods=['GET'])
 def get_image():
     global correct_answer
     correct_answer = get_song()
-    client = Client("https://dukujames-text-image.hf.space/")
     result = client.predict(
         correct_answer,	 # str  in 'Input' Textbox component
         api_name="/predict"
