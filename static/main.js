@@ -8,20 +8,27 @@ $(document).ready(function(){
             data: $('form').serialize(),
             beforeSend: function()
             {
-                //$('samp[name="output_field"]').html('');
+                
             },
             success: function(response){
                 if (response.result == true){
                     $('#score').text(`${response.score}`)
+                    $('#help').text(' ')
+                    $('#getGen').click()
                 }
                 else {
-                    $('#qwe').text(`${response.lives}`)  
+                    console.log(response.lives)
+                    $('#qwe').text(`${response.lives}`)
+                    if (response.lives == 0){
+                        location.reload()
+                    }  
                 }
             }
         })
      })
      
-     
+    let click = 0;  
+
      $('#getHelp').click(function(){
         $.ajax({
             url: '/help',
@@ -29,15 +36,20 @@ $(document).ready(function(){
             dataType: 'text',
             beforeSend: function()
             {
-                //$('samp[name="output_field"]').html('');
+
             },
             success: function(response){
                 console.log(response)
+                click +=1
                 $('#help').append(document.createTextNode(`${response + ' '}`))
+                if (click == 3){
+                    $("#getHelp").attr("disabled", true);
+                }
             }
         })
-     }) 
-
+     });
+     
+     
     $('#getGen').click(function(){
         $.ajax({
             url: '/generate',
@@ -54,10 +66,3 @@ $(document).ready(function(){
     })
 })
 
-$(document).ajaxSend(function(event, request, settings) {
-    $('#loading-indicator').show();
-});
-
-$(document).ajaxComplete(function(event, request, settings) {
-    $('#loading-indicator').hide();
-})
