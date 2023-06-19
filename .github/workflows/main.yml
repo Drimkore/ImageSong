@@ -21,11 +21,9 @@ jobs:
 
     steps:
     - name: Removing previous chrome instances on runner
-      run: sudo apt purge google-chrome-stable 
-    - name: Installing all necessary packages
-      run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay
-    - name: Install xvfb
-      run: sudo apt-get install xvfb
+      run: sudo apt purge google-chrome-stable
+    - name: Install software
+      run: sudo apt-get install -y chromium-browser
     - uses: actions/checkout@main
     - name: Set up Python 3.9
       uses: actions/setup-python@v3
