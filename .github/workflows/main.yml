@@ -23,7 +23,9 @@ jobs:
     - name: Removing previous chrome instances on runner
       run: sudo apt purge google-chrome-stable
     - name: Install software
-      run: sudo apt install chromium-chromedriver chromium-browser
+      run: sudo apt install openjdk-8-jre chromium-chromedriver chromium-browser firefox
+    - name: Install Chromedriver
+      run: wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
     - uses: actions/checkout@main
     - name: Set up Python 3.9
       uses: actions/setup-python@v3
