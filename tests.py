@@ -46,7 +46,7 @@ def test_image_gen(browser):
     img_src = img.get_attribute('src')
     assert img_src != ''
 
-"""
+
 def test_ptn_decr(browser):
     global driver
     URL = 'http://158.160.46.176:5000/'
@@ -58,7 +58,7 @@ def test_ptn_decr(browser):
         a = 3 - i
         pnt = driver.find_element(By.ID, "qwe").text
         assert pnt == f"{a}"
-"""
+
 
 def test_help_btn(browser):
     global driver
@@ -73,7 +73,7 @@ def test_help_btn(browser):
     hlp_txt = driver.find_element(By.ID, "help").text
     assert hlp_txt != ''
 
-"""
+
 def test_input(browser):
     global driver
     URL = 'http://158.160.46.176:5000/'
@@ -86,4 +86,4 @@ def test_input(browser):
     time.sleep(5)
     new_pnt = driver.find_element(By.ID, "qwe").text
     assert new_pnt != init_pnt
-    driver.quit()"""
+    driver.quit()
