@@ -6,5 +6,11 @@
 
 ## Описание приложения
 Описание приложения — игра на угадывание песни по изображению сгенерированному моделью AI (stable-diffusion-v1-5)   
-## Ссылка на трелло(https://trello.com/b/HGD6rCtF/progenj)
+
+### Ссылка на трелло(https://trello.com/b/HGD6rCtF/progenj)
+
 ### Ссылка на приложение(http://158.160.46.176:5000/)
+
+### Демонстрация работы
+
+![Работа приложения](https://github.com/Drimkore/ImageSong/blob/main/game.gif)
