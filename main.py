@@ -62,14 +62,14 @@ def get_image():
 def check_result():
     global lives
     global score
-    res = False
+    result = False
     text = request.form['input_field']
     if text == correct_answer:
-        res = True
+        result = True
         score += 10
     else:
         lives -= 1
-    return json.dumps({'lives': lives, 'result': res, 'score': score})
+    return json.dumps({'lives': lives, 'result': result, 'score': score})
 
 
 @app.route("/help", methods=['GET'])
