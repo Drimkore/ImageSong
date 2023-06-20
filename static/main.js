@@ -61,6 +61,9 @@ $(document).ready(function(){
             },
             success: function(response){
                 $('img[name="check"]').attr( "src", `${response.result}`)
+                if (click == 0) {
+                    $("input").attr("disabled", false)                     
+                }
             }
         })
     })
