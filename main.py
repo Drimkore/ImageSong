@@ -47,10 +47,6 @@ def get_song():
     return song_title
 
 
-
-
-
-
 @app.route("/generate", methods=['GET'])
 def get_image():
     global correct_answer
