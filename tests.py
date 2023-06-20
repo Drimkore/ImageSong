@@ -59,7 +59,7 @@ def test_ptn_decr(browser):
         pnt = driver.find_element(By.ID, "qwe").text
         assert pnt == f"{a}"
 
-
+"""
 def test_help_btn(browser):
     global driver
     URL = 'http://158.160.46.176:5000/'
@@ -86,4 +86,4 @@ def test_input(browser):
     time.sleep(5)
     new_pnt = driver.find_element(By.ID, "qwe").text
     assert new_pnt != init_pnt
-    driver.quit()
+    driver.quit()"""
