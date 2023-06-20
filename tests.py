@@ -37,7 +37,7 @@ def browser():
 
 def test_image_gen(browser):
     global driver
-    URL = 'http://51.250.82.117:5000/'
+    URL = 'http://158.160.46.176:5000/'
     browser.get(URL)
     start_btn = driver.find_element(By.ID, "getGen")
     start_btn.click()
@@ -49,7 +49,7 @@ def test_image_gen(browser):
 
 def test_ptn_decr(browser):
     global driver
-    URL = 'http://51.250.82.117:5000/'
+    URL = 'http://158.160.46.176:5000/'
     browser.get(URL)
     post_btn = driver.find_element(By.ID, "postAns")
     for i in range(3):
@@ -62,7 +62,7 @@ def test_ptn_decr(browser):
 
 def test_help_btn(browser):
     global driver
-    URL = 'http://51.250.82.117:5000/'
+    URL = 'http://158.160.46.176:5000/'
     browser.get(URL)
     start_btn = driver.find_element(By.ID, "getGen")
     start_btn.click()
@@ -76,7 +76,7 @@ def test_help_btn(browser):
 
 def test_input(browser):
     global driver
-    URL = 'http://51.250.82.117:5000/'
+    URL = 'http://158.160.46.176:5000/'
     browser.get(URL)
     init_pnt = driver.find_element(By.ID, "qwe").text
     input_field = driver.find_element(By.NAME, 'input_field')
