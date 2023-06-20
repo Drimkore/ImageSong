@@ -44,6 +44,7 @@ def test_image_gen(browser):
     img_src = img.get_attribute('src')
     assert img_src != ''
 
+
 """
 def test_ptn_decr(browser):
     global driver
