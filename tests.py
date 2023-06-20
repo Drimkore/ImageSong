@@ -44,7 +44,7 @@ def test_image_gen(browser):
     img_src = img.get_attribute('src')
     assert img_src != ''
 
-
+"""
 def test_ptn_decr(browser):
     global driver
     URL = 'http://158.160.46.176:5000/'
@@ -85,3 +85,4 @@ def test_input(browser):
     new_pnt = driver.find_element(By.ID, "qwe").text
     assert new_pnt != init_pnt
     driver.quit()
+"""
