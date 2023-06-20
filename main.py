@@ -39,7 +39,7 @@ def change_path(path):
 
 
 def get_song():
-    r_id = random.randint(0, 10)
+    r_id = random.randint(0, 9)
     song_data = json.load(open('song_list.json', 'rb'))
     song_title = song_data['songs'][r_id]['song_name']
     global help_list
