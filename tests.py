@@ -13,6 +13,7 @@ chrome_options.add_argument('--headless')
 
 driver = webdriver.Chrome(options=chrome_options)
 
+
 @pytest.fixture()
 def client():
     return app.test_client()
@@ -25,7 +26,6 @@ def test_request_example(client):
 
 def test_not_empty():
     assert get_song() != ""
-
 
 
 @pytest.fixture()
