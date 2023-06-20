@@ -1,10 +1,8 @@
 import pytest
-import selenium
 import time
-from main import get_song, check_result
+from main import get_song
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from main import app
 
 
